@@ -11,7 +11,7 @@ export default function Contact() {
 
             <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6">
               <div className="text-sm text-blue-200/80">Email</div>
-              <a href="mailto:you@example.com" className="text-white font-medium">you@example.com</a>
+              <a href="mailto:you@example.com" className="text-white font-medium transition-colors hover:text-white/90 hover:underline">you@example.com</a>
               <div className="mt-4 text-sm text-blue-200/80">Location</div>
               <div className="text-white font-medium">Remote / Worldwide</div>
             </div>
@@ -28,18 +28,18 @@ export default function Contact() {
             <div className="grid gap-4">
               <div>
                 <label className="text-sm text-blue-200/80">Name</label>
-                <input className="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-blue-500/50" placeholder="Your name" />
+                <input className="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white outline-none transition-all focus:ring-2 focus:ring-blue-500/50 hover:border-white/20 hover:bg-slate-900/70" placeholder="Your name" />
               </div>
               <div>
                 <label className="text-sm text-blue-200/80">Email</label>
-                <input type="email" className="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-blue-500/50" placeholder="you@example.com" />
+                <input type="email" className="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white outline-none transition-all focus:ring-2 focus:ring-blue-500/50 hover:border-white/20 hover:bg-slate-900/70" placeholder="you@example.com" />
               </div>
               <div>
                 <label className="text-sm text-blue-200/80">Message</label>
-                <textarea rows="5" className="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-blue-500/50" placeholder="Tell me about your project..." />
+                <textarea rows="5" className="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-white outline-none transition-all focus:ring-2 focus:ring-blue-500/50 hover:border-white/20 hover:bg-slate-900/70" placeholder="Tell me about your project..." />
               </div>
             </div>
-            <button className="mt-4 inline-flex items-center rounded-xl bg-white text-slate-900 px-5 py-3 text-sm font-medium hover:bg-white/90 transition-colors shadow-lg shadow-blue-500/20">Send message</button>
+            <button className="mt-4 inline-flex items-center rounded-xl bg-white text-slate-900 px-5 py-3 text-sm font-medium transition-all hover:bg-white/90 hover:shadow-[0_12px_40px_rgba(59,130,246,0.35)] hover:-translate-y-0.5">Send message</button>
           </motion.form>
         </div>
       </div>

@@ -19,9 +19,10 @@ export default function About() {
 
             <div className="mt-6 grid gap-4">
               {items.map((i) => (
-                <div key={i.k} className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div key={i.k} className="group flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 transition-all hover:border-white/20 hover:bg-white/10">
                   <div className="text-sm w-28 shrink-0 text-blue-200/70">{i.k}</div>
                   <div className="text-sm text-white/90">{i.v}</div>
+                  <div className="ml-auto h-6 w-6 rounded-lg bg-gradient-to-br from-cyan-400/30 to-indigo-500/30 opacity-0 blur-sm transition-all group-hover:opacity-100 group-hover:blur"></div>
                 </div>
               ))}
             </div>
@@ -32,8 +33,8 @@ export default function About() {
               <div className="rounded-[22px] bg-slate-900/70 p-8">
                 <div className="grid grid-cols-2 gap-4">
                   {Array.from({ length: 6 }).map((_, idx) => (
-                    <div key={idx} className="rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-white/80">
-                      <div className="h-24 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20" />
+                    <div key={idx} className="group rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-white/80 transition-all hover:bg-white/10 hover:border-white/20">
+                      <div className="h-24 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 transition-all group-hover:scale-[1.02] group-hover:contrast-125" />
                       <div className="mt-3 font-medium">UI Concept {idx + 1}</div>
                       <div className="text-xs text-blue-200/70">Motion, Glass, Glow</div>
                     </div>

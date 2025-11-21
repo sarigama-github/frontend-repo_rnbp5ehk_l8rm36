@@ -10,6 +10,8 @@ export default function Hero() {
 
       <div className="absolute inset-0">
         <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        {/* gradient glass overlay that subtly reacts on hover */}
+        <div className="pointer-events-none absolute inset-0 transition duration-500 group/hero hover:opacity-90" />
       </div>
 
       <div className="relative z-10">
@@ -37,10 +39,10 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="mt-8 flex items-center gap-4"
             >
-              <a href="#projects" className="inline-flex items-center rounded-xl bg-white text-slate-900 px-5 py-3 text-sm font-medium hover:bg-white/90 transition-colors shadow-lg shadow-blue-500/20">
+              <a href="#projects" className="inline-flex items-center rounded-xl bg-white text-slate-900 px-5 py-3 text-sm font-medium transition-all hover:bg-white/90 hover:saturate-150 hover:shadow-[0_12px_40px_rgba(59,130,246,0.35)] hover:-translate-y-0.5">
                 See my work
               </a>
-              <a href="#contact" className="inline-flex items-center rounded-xl bg-white/10 text-white px-5 py-3 text-sm font-medium hover:bg-white/15 transition-colors border border-white/10">
+              <a href="#contact" className="inline-flex items-center rounded-xl bg-white/10 text-white px-5 py-3 text-sm font-medium transition-all border border-white/10 hover:bg-white/15 hover:backdrop-blur-md hover:saturate-150 hover:shadow-[0_8px_30px_rgba(34,211,238,0.25)] hover:-translate-y-0.5">
                 Get in touch
               </a>
             </motion.div>

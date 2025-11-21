@@ -25,6 +25,21 @@ const projects = [
   },
 ]
 
+function setGlowVars(e) {
+  const card = e.currentTarget
+  const rect = card.getBoundingClientRect()
+  const x = ((e.clientX - rect.left) / rect.width) * 100
+  const y = ((e.clientY - rect.top) / rect.height) * 100
+  card.style.setProperty('--x', `${x}%`)
+  card.style.setProperty('--y', `${y}%`)
+}
+
+function resetGlowVars(e) {
+  const card = e.currentTarget
+  card.style.removeProperty('--x')
+  card.style.removeProperty('--y')
+}
+
 export default function Projects() {
   return (
     <section id="projects" className="relative py-20">
@@ -42,22 +57,28 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5"
+              onMouseMove={setGlowVars}
+              onMouseLeave={resetGlowVars}
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(59,130,246,0.15)]"
             >
-              <div className="h-40 rounded-xl bg-gradient-to-br from-indigo-500/30 to-cyan-500/30"></div>
+              <div className="relative h-40 overflow-hidden rounded-xl">
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-indigo-500/30 to-cyan-500/30 transition-all duration-500 group-hover:scale-105 group-hover:contrast-125 group-hover:saturate-125" />
+                {/* radial glow that follows the cursor using CSS vars --x/--y */}
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(600px_200px_at_var(--x,50%)_var(--y,50%),rgba(255,255,255,0.25),transparent_60%)]" />
+              </div>
               <div className="mt-4 flex items-start justify-between gap-4">
                 <div>
                   <h3 className="text-lg font-semibold text-white">{p.title}</h3>
                   <p className="mt-1 text-sm text-blue-100/90">{p.desc}</p>
                 </div>
                 <div className="flex items-center gap-2 text-blue-100/80">
-                  <a href={p.repo} className="hover:text-white"><Github size={18} /></a>
-                  <a href={p.link} className="hover:text-white"><ExternalLink size={18} /></a>
+                  <a href={p.repo} className="transition-transform hover:text-white hover:scale-110"><Github size={18} /></a>
+                  <a href={p.link} className="transition-transform hover:text-white hover:scale-110"><ExternalLink size={18} /></a>
                 </div>
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
-                  <span key={t} className="rounded-lg border border-white/10 bg-slate-900/60 px-2 py-1 text-xs text-blue-200/80">{t}</span>
+                  <span key={t} className="rounded-lg border border-white/10 bg-slate-900/60 px-2 py-1 text-xs text-blue-200/80 transition-all hover:border-white/20 hover:bg-slate-900/70 hover:text-white/90 hover:saturate-150">{t}</span>
                 ))}
               </div>
             </motion.article>
